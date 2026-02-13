@@ -1,19 +1,80 @@
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   text-align: center;
-  background: #e8f5e9;
+  background: #f0f9f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+#progress-container {
+  width: 80%;
+  height: 25px;
+  background-color: #c8e6c9;
+  border-radius: 12px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #2e7d32;
+  border-radius: 12px;
+  transition: width 0.5s, background-color 0.5s;
+}
+
+#levelDisplay {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 button {
-  padding: 12px 20px;
+  padding: 12px 25px;
   margin: 10px;
   border: none;
-  background: #2e7d32;
-  color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.hidden {
-  display: none;
+/* ألوان مختلفة للمهام */
+button:nth-child(1) { background-color: #43a047; } /* المهمة السهلة */
+button:nth-child(2) { background-color: #f57c00; } /* المهمة المتوسطة */
+button:nth-child(3) { background-color: #d32f2f; } /* المهمة الصعبة */
+button:nth-child(4) { background-color: #1976d2; } /* العودة */
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
+
+/* قائمة الإنجازات */
+#completed-quests {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#completed-quests li {
+  background: #e0f2f1;
+  margin: 5px auto;
+  padding: 8px 12px;
+  width: 60%;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Progress Bar حسب المستوى */
+.level-1 { background-color: #2e7d32; }
+.level-2 { background-color: #fbc02d; }
+.level-3 { background-color: #f57c00; }
+.level-4 { background-color: #d32f2f; }
