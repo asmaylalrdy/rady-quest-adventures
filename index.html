@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -25,7 +26,9 @@
 <!-- صفحة المهام -->
 <div id="quests" class="hidden">
   <h2>Available Quests</h2>
-  <button onclick="startQuest()">ابدأ المهمة السهلة (+100 XP)</button>
+  <button onclick="completeQuest(100, 'المهمة السهلة')">ابدأ المهمة السهلة (+100 XP)</button>
+  <button onclick="completeQuest(200, 'المهمة المتوسطة')">ابدأ المهمة المتوسطة (+200 XP)</button>
+  <button onclick="completeQuest(400, 'المهمة الصعبة')">ابدأ المهمة الصعبة (+400 XP)</button>
   <button onclick="goHome()">العودة</button>
 </div>
 
@@ -33,6 +36,7 @@
 <div id="achievements" class="hidden">
   <h2>إنجازاتك</h2>
   <p id="xpDisplay">Level: 1 | XP: 0</p>
+  <ul id="completed-quests"></ul>
   <button onclick="goHome()">العودة</button>
 </div>
 
