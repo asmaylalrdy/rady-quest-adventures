@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rady Quest Adventures</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Rady Quest Adventures</h1>
+
+<div id="home">
+  <button onclick="goToQuests()">Quests</button>
+  <button onclick="goToAchievements()">Achievements</button>
+</div>
+
+<div id="quests" class="hidden">
+  <h2>Available Quests</h2>
+  <button onclick="startQuest()">Start Easy Quest (+100 XP)</button>
+  <button onclick="goHome()">Back</button>
+</div>
+
+<div id="achievements" class="hidden">
+  <h2>Your XP</h2>
+  <p id="xpDisplay">XP: 0</p>
+  <button onclick="goHome()">Back</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
