@@ -1,6 +1,9 @@
 // جلب XP من التخزين أو البداية من 0
 let xp = parseInt(localStorage.getItem("xp")) || 0;
 
+// قائمة المهام المكتملة لتظهر في الإنجازات
+let completedQuests = JSON.parse(localStorage.getItem("completedQuests")) || [];
+
 // دالة تحديد المستوى حسب XP
 function getLevel(xp) {
   if (xp >= 1000) return 4;
@@ -33,6 +36,19 @@ function updateProgress() {
 // تحديث Progress عند بداية الصفحة
 updateProgress();
 
+// تحديث قائمة الإنجازات
+function updateAchievements() {
+  const list = document.getElementById("completed-quests");
+  list.innerHTML = "";
+  completedQuests.forEach((quest, index) => {
+    const li = document.createElement("li");
+    li.textContent = quest;
+    list.appendChild(li);
+  });
+  document.getElementById("xpDisplay").innerText =
+    "Level: " + getLevel(xp) + " | XP: " + xp;
+}
+
 // دوال التنقل بين الصفحات
 function goToQuests() {
   document.getElementById("home").classList.add("hidden");
@@ -43,6 +59,7 @@ function goToAchievements() {
   document.getElementById("home").classList.add("hidden");
   document.getElementById("achievements").classList.remove("hidden");
   updateProgress();
+  updateAchievements();
 }
 
 function goHome() {
@@ -52,10 +69,15 @@ function goHome() {
   updateProgress();
 }
 
-// دالة بدء المهمة وزيادة XP
-function startQuest() {
-  xp += 100;  // زيادة XP
-  localStorage.setItem("xp", xp);  // حفظ XP في localStorage
-  alert("Quest completed!");
-  updateProgress();  // تحديث Level و Progress Bar فوراً
+// دالة إكمال أي مهمة بمكافأة محددة
+function completeQuest(xpReward, questName) {
+  xp += xpReward;
+  localStorage.setItem("xp", xp);
+
+  completedQuests.push(questName);
+  localStorage.setItem("completedQuests", JSON.stringify(completedQuests));
+
+  alert(questName + " اكتملت! + " + xpReward + " XP");
+  updateProgress();
+  updateAchievements();
 }
