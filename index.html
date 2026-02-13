@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
+  <meta charset="UTF-8">
   <title>Rady Quest Adventures</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -8,21 +9,31 @@
 
 <h1>Rady Quest Adventures</h1>
 
-<div id="home">
-  <button onclick="goToQuests()">Quests</button>
-  <button onclick="goToAchievements()">Achievements</button>
+<!-- شريط التقدم -->
+<div id="progress-container">
+  <div id="progress-bar"></div>
 </div>
 
+<p id="levelDisplay">Level: 1 | XP: 0</p>
+
+<!-- الصفحة الرئيسية -->
+<div id="home">
+  <button onclick="goToQuests()">المهام</button>
+  <button onclick="goToAchievements()">الإنجازات</button>
+</div>
+
+<!-- صفحة المهام -->
 <div id="quests" class="hidden">
   <h2>Available Quests</h2>
-  <button onclick="startQuest()">Start Easy Quest (+100 XP)</button>
-  <button onclick="goHome()">Back</button>
+  <button onclick="startQuest()">ابدأ المهمة السهلة (+100 XP)</button>
+  <button onclick="goHome()">العودة</button>
 </div>
 
+<!-- صفحة الإنجازات -->
 <div id="achievements" class="hidden">
-  <h2>Your XP</h2>
-  <p id="xpDisplay">XP: 0</p>
-  <button onclick="goHome()">Back</button>
+  <h2>إنجازاتك</h2>
+  <p id="xpDisplay">Level: 1 | XP: 0</p>
+  <button onclick="goHome()">العودة</button>
 </div>
 
 <script src="app.js"></script>
